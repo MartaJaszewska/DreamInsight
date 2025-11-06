@@ -1,6 +1,6 @@
 # Tech stack — DreamInsight (MVP)
 
-Krótka decyzja: używamy Next.js jako głównego frameworka (frontend + serverless API), Supabase jako backend-as-a-service i Openrouter do integracji z modelami AI. Taka kombinacja daje najszybszą ścieżkę do MVP przy zachowaniu bezpieczeństwa i możliwości skalowania.
+Krótka decyzja: używamy Next.js jako głównego frameworka (frontend + serverless API), Supabase jako backend-as-a-service i OpenAI do integracji z modelami AI. Taka kombinacja daje najszybszą ścieżkę do MVP przy zachowaniu bezpieczeństwa i możliwości skalowania.
 
 ## Frontend
 
@@ -20,9 +20,7 @@ Dlaczego: pełny React + server-side/edge API w jednym frameworku — prostsze s
 
 ## AI
 
-- Openrouter jako warstwa pośrednia (możliwość zamiany providerów)
-- Model domyślny: `gpt-4o-mini` dla pełnych interpretacji (zgodnie z PRD)
-- Tańszy model (np. gpt-3.5) lub lokalny heurystyczny parser do propozycji tagów/emocji
+- OpenAI API jako warstwa pośrednia (możliwość zamiany providerów)
 - Wszystkie wywołania AI wykonywane na serwerze (Next API Route lub Supabase Edge Function) — klucze API w secrets, nigdy w przeglądarce
 - Obsługa błędów: retry, timeout, circuit-breaker; rate-limiting na endpointach AI
 
@@ -52,8 +50,8 @@ Dlaczego: pełny React + server-side/edge API w jednym frameworku — prostsze s
 ## Dev / env
 
 - Dev env vars (minimum):
-  - `SUPABASE_URL`, `SUPABASE_ANON_KEY` (public), `SUPABASE_SERVICE_ROLE_KEY` (server-only)
-  - `OPENROUTER_API_KEY` (server-only)
+  - `SUPABASE_URL`, `SUPABASE_KEY` (public),
+  - `OPENAI_API_KEY` (server-only)
   - `NEXTAUTH_URL` / inne jeśli używasz dodatkowych auth flows
 - Local dev: `vercel dev` or `next dev` + supabase local emulator / hosted test instance
 

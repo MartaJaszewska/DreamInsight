@@ -1,0 +1,14 @@
+---
+description:
+globs: "src/app/api/**/*.ts,src/lib/**/*.ts,src/db/**/*.ts"
+alwaysApply: false
+---
+
+### Backend and Database
+
+- Use Supabase for backend services, including authentication and database interactions.
+- Prefer Next.js Server Actions for data mutations, and API Routes for webhooks or when a specific endpoint is needed.
+- Follow Supabase guidelines for security and performance, especially Row Level Security (RLS).
+- Use Zod schemas to validate data for Server Actions and API Route handlers.
+- Use the server-side Supabase client from `src/db/supabase.server.ts` in Server Components, Server Actions, and API Routes.
+- The client-side Supabase client from `src/db/supabase.client.ts` should only be used in Client Components.

@@ -1,0 +1,33 @@
+---
+description: "Next.js specific guidelines"
+globs: "src/app/**/*.tsx"
+alwaysApply: false
+---
+
+## Next.js Guidelines
+
+### App Router
+
+- Organize routes using folders inside `src/app`.
+- Use `page.tsx` for route UI, `layout.tsx` for shared UI, and `template.tsx` for re-rendered layouts.
+- Use `loading.tsx` for instant loading states and `error.tsx` for error handling within nested routes.
+- Create route groups `(group-name)` to organize routes without affecting the URL path.
+
+### Data Fetching
+
+- Fetch data in Server Components using `async/await`.
+- Use `fetch` with caching options (`force-cache`, `no-store`) for static and dynamic data.
+- Revalidate data using `revalidatePath` or `revalidateTag` in Server Actions or API Routes.
+
+### Server Actions
+
+- Define Server Actions directly in Server Components (`"use server";`) or in a separate file.
+- Use Server Actions for data mutations (e.g., form submissions).
+- Progressively enhance forms by passing a Server Action to the `action` prop.
+- Use the `useFormStatus` and `useFormState` hooks in Client Components for pending and response states.
+
+### Rendering
+
+- Default to Static Rendering for the best performance.
+- Opt into Dynamic Rendering (`export const dynamic = 'force-dynamic'`) for pages with dynamic data.
+- Use Streaming with Suspense to progressively render and show parts of the UI.
