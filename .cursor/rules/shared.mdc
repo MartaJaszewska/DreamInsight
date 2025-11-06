@@ -4,9 +4,36 @@ globs:
 alwaysApply: true
 ---
 
-# AI Rules for {app-name}
+# AI Rules for DreamInsight
 
-{project-description}
+### Główny problem
+
+Manualne prowadzenie dziennika snów jest często chaotyczne i nieefektywne, co powoduje, że użytkownicy szybko zapominają szczegóły snów lub nie dostrzegają ukrytych wzorców i znaczeń psychologicznych. Brak narzędzi do automatycznej analizy i korelacji snów z emocjami czy trendami zniechęca do regularnego journalingu, uniemożliwiając głębszy rozwój osobisty i zrozumienie podświadomości.
+
+### Najmniejszy zestaw funkcjonalności
+
+- Rejestracja i logowanie użytkownika do bezpiecznego przechowywania danych snów
+- Dodawanie wpisu snu (create): Forma z polami takimi jak data, opis, emocje i symbole (tagi)
+- Przeglądanie listy snów (read), edycja (update) i usuwanie (delete) wpisów
+- Analiza snu przez AI: Generowanie interpretacji i sugestii na podstawie opisu (np. via prosty prompt do API jak OpenAI)
+- Dashboard z wizualizacjami: Proste raporty, np. wykresy częstotliwości emocji/symboli i podsumowania trendów
+- Powiadomienia: Podstawowe przypomnienia o daily journaling (via service worker)
+
+### Co NIE wchodzi w zakres MVP
+
+- Zaawansowane modele ML do analizy snów (użyj gotowego API zamiast custom AI)
+- Integracja z urządzeniami do trackowania snu (np. wearables jak Fitbit)
+- Funkcje społecznościowe: Dzielenie się snami czy dyskusje z innymi użytkownikami
+- Eksport do formatów zewnętrznych (np. PDF czy integracja z kalendarzem)
+- Wersja mobilna native (tylko web responsywny na start)
+- Głosowy input lub automatyczna transkrypcja snów
+
+### Kryteria sukcesu
+
+- 80% użytkowników regularnie dodaje wpisy snów co najmniej 3 razy w tygodniu
+- 70% interpretacji AI jest ocenianych jako przydatne przez użytkowników (np. via optional feedback button)
+- App osiąga zero critical bugów po testach E2E i deployu na publicznym URL
+- Użytkownicy spędzają średnio >5 min na sesję, wskazując na angażujący UX
 
 ## Tech Stack
 
